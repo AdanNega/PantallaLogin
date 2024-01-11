@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"> 
+
+<h:head>
+	<title>Inicio de Sesión</title>
+	<link rel="stylesheet" href="https://framework-gb.cdn.gob.mx/assets/styles/main.css"/>
+	<link rel="stylesheet" href="https://unpkg.com/primeflex@latest/primeflex.css"/>
+</h:head> 
+<body>
+	<div class="flex justify-content-center"> 
+		<h:form>
+			<p:growl id="growl" showDetail="true" sticky="false" life="2000"/>
+			<p:panel header="Inicio de Sesión" class="text-4xl">
+				<div class="field group">
+					<h:panelGrid columns="2" cellpading="5">
+						<div class="w-1rem h-1rem">
+						<p:outputLabel class="control-label text-2xl" for="usuario" value="Usuario: "/>
+						</div>
+						<div>
+						<p:inputText class="form-control text-2xl" id="usuario" value="#{userBean.usuario}" required="true" size="30" placeholder="Ingresa tu usuario"/>
+						</div>	
+					</h:panelGrid>
+				</div>
+				<div class="field group">
+					<h:panelGrid columns="2" cellpading="5">
+						<div class="w-1rem h-1rem">
+						<p:outputLabel class="control-label text-2xl" for="pass" value="Contraseña: "/>
+						</div>
+						<div class="w-1rem h-1rem">
+						<p:inputText class="form-control text-2xl" type="password" id="pass" value="#{userBean.pass}" required="true" size="30" placeholder="Ingresa tu contraseña"/>
+						</div>
+					</h:panelGrid>
+				</div>
+				<h:link value="¿Olvidaste tu contraseña?" class="text-red-800 text-base w-1rem h-1rem"/>
+				<h:panelGrid class="flex justify-content-end flex-wrap">
+					<p:commandButton value="Ingresar" actionListener="#{userBean.displayMessage}" update="growl" class="bg-white text-red-800 border-red-800 text-2xl hover:bg-red-800 hover:text-white btn-primary"/>
+				</h:panelGrid>
+			</p:panel>
+		</h:form>
+	</div>
+</body> 
+</html>
